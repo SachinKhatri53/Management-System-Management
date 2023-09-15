@@ -1,0 +1,94 @@
+﻿<UserControl
+    x:Class="Prism_Medication_Management_System.Views.UCLogin"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:passwordHelper="clr-namespace:Prism_Medication_Management_System.Helpers"
+    xmlns:prism="http://prismlibrary.com/"
+    prism:ViewModelLocator.AutoWireViewModel="True">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="1.2*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <Border Padding="50,0">
+            <StackPanel Margin="0,100,0,50">
+                <Label
+                    Content="Login"
+                    FontFamily="Verdana"
+                    FontSize="40"
+                    FontWeight="Bold"
+                    Foreground="#3D7ED4" />
+                <Label
+                    Name="Email"
+                    Content="Email"
+                    Style="{StaticResource LabelStyle}" />
+                <TextBox
+                    Name="EmailTextBox"
+                    Style="{StaticResource TextBoxStyle}"
+                    Text="{Binding User.Email}" />
+                <Label Content="Password" Style="{StaticResource LabelStyle}" />
+                <PasswordBox passwordHelper:PasswordBoxAssistant.BoundPassword="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource PasswordBoxStyle}" />
+                <Button
+                    Command="{Binding LoginCommand}"
+                    Content="Login"
+                    Style="{StaticResource RegisterButtonStyle}" />
+                <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                    <TextBlock FontFamily="Verdana" Text="New Here?">
+                        <Hyperlink Command="{Binding OpenRegistrationCommand}" TextDecorations="None">
+                            Register Now
+                        </Hyperlink>
+                    </TextBlock>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        <Border
+            Grid.Column="1"
+            Padding="20"
+            Background="#3D7ED4">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Image
+                    Width="200"
+                    Height="auto"
+                    Margin="-20"
+                    HorizontalAlignment="Right"
+                    Source="../Images/logo.png" />
+                <TextBlock
+                    Grid.Row="1"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontFamily="Verdana"
+                    FontSize="18"
+                    Foreground="White"
+                    Text="{Binding DemoText}"
+                    TextAlignment="Center"
+                    TextWrapping="Wrap" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="1" Grid.ColumnSpan="2">
+            <StackPanel>
+                <TextBlock
+                    Padding="0,10,0,0"
+                    FontFamily="Verdana"
+                    FontWeight="bold"
+                    Foreground="black"
+                    Text="Copyright 2023"
+                    TextAlignment="center" />
+                <TextBlock
+                    Padding="0,0,0,10"
+                    FontFamily="Verdana"
+                    FontWeight="bold"
+                    Foreground="black"
+                    Text="Medication Management System"
+                    TextAlignment="center" />
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

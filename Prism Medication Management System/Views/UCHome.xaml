@@ -1,0 +1,132 @@
+﻿<UserControl
+    x:Class="Prism_Medication_Management_System.Views.UCHome"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:fa="http://schemas.fontawesome.io/icons/"
+    xmlns:prism="http://prismlibrary.com/"
+    xmlns:syncfusion="clr-namespace:Syncfusion.UI.Xaml.Charts;assembly=Syncfusion.SfChart.WPF"
+    prism:ViewModelLocator.AutoWireViewModel="True">
+    <Grid Background="{DynamicResource BackTheme}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Border
+                Margin="40"
+                Padding="10"
+                BorderBrush="#3D7ED4"
+                BorderThickness="1">
+                <StackPanel>
+                    <fa:FontAwesome
+                        FontSize="40"
+                        Foreground="DarkOliveGreen"
+                        Icon="Medkit" />
+                    <Label
+                        HorizontalAlignment="Center"
+                        Content="{Binding MedicationCount}"
+                        Style="{DynamicResource ViewLabelStyle}" />
+                    <Label
+                        HorizontalAlignment="Center"
+                        Content="Medication"
+                        Style="{DynamicResource ViewLabelStyle}" />
+                </StackPanel>
+            </Border>
+            <Border
+                Grid.Column="1"
+                Margin="0,40,40,40"
+                Padding="10"
+                BorderBrush="#3D7ED4"
+                BorderThickness="1">
+                <StackPanel>
+                    <fa:FontAwesome
+                        FontSize="40"
+                        Foreground="Blue"
+                        Icon="Thermometer" />
+                    <Label
+                        HorizontalAlignment="Center"
+                        Content="{Binding ScheduleCount}"
+                        Style="{DynamicResource ViewLabelStyle}" />
+                    <Label
+                        HorizontalAlignment="Center"
+                        Content="Schedules"
+                        Style="{DynamicResource ViewLabelStyle}" />
+                </StackPanel>
+            </Border>
+
+        </Grid>
+        <Border Grid.Row="1" Grid.Column="1">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+                <Border Margin="40,0,40,0">
+                    <StackPanel>
+                        <TextBlock Style="{DynamicResource TextBlockStyle}" Text="Frequency of Medicine Consumption" />
+                        <syncfusion:SfChart Height="auto">
+
+                            <syncfusion:SfChart.PrimaryAxis>
+                                <syncfusion:CategoryAxis
+                                    Foreground="Gray"
+                                    Header="Medicine"
+                                    ShowGridLines="False" />
+                            </syncfusion:SfChart.PrimaryAxis>
+                            <syncfusion:SfChart.SecondaryAxis>
+                                <syncfusion:NumericalAxis
+                                    Foreground="Gray"
+                                    Header="Frequency"
+                                    ShowGridLines="False" />
+                            </syncfusion:SfChart.SecondaryAxis>
+                            <syncfusion:ColumnSeries
+                                Interior="#3D7ED4"
+                                ItemsSource="{Binding DosageList}"
+                                XBindingPath="MedicationName"
+                                YBindingPath="Frequency" />
+                        </syncfusion:SfChart>
+                    </StackPanel>
+                </Border>
+                <Border Grid.Column="1" Margin="0,0,40,0">
+                    <StackPanel>
+                        <Label
+                            HorizontalAlignment="Center"
+                            Content="Today's Medication Schedules"
+                            Style="{DynamicResource ViewLabelStyle}" />
+                        <ListView
+                            Background="{DynamicResource BackTheme}"
+                            FontSize="18"
+                            Foreground="{DynamicResource ListViewTheme}"
+                            ItemsSource="{Binding TodaySchedule}">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn
+                                        Width="150"
+                                        DisplayMemberBinding="{Binding MedicationName}"
+                                        Header="Medicine" />
+                                    <GridViewColumn
+                                        Width="100"
+                                        DisplayMemberBinding="{Binding Time}"
+                                        Header="Time" />
+                                </GridView>
+                            </ListView.View>
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListViewItem">
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="LightGray" />
+                                            <Setter Property="Foreground" Value="black" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                        </ListView>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

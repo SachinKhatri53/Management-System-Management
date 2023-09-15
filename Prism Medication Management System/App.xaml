@@ -1,0 +1,25 @@
+﻿<prism:PrismApplication
+    x:Class="Prism_Medication_Management_System.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Prism_Medication_Management_System"
+    xmlns:prism="http://prismlibrary.com/">
+    <Application.Resources>
+
+        <ResourceDictionary>
+            <FontFamily x:Key="FontAwesome">/Fonts/fontawesome-webfont.ttf#FontAwesome</FontFamily>
+            <ResourceDictionary.MergedDictionaries>
+
+                <ResourceDictionary Source="ResourceDictionaries/LabelDictionary.xaml" />
+                <ResourceDictionary Source="ResourceDictionaries/TextBoxDictionary.xaml" />
+                <ResourceDictionary Source="ResourceDictionaries/PasswordBoxDictionary.xaml" />
+                <ResourceDictionary Source="ResourceDictionaries/ButtonDictionary.xaml" />
+                <ResourceDictionary Source="ResourceDictionaries/RadioButtonDictionary.xaml" />
+                <ResourceDictionary Source="ResourceDictionaries/DatePickerDictionary.xaml" />
+                <ResourceDictionary Source="ResourceDictionaries/ComboBoxDictionary.xaml" />
+
+                <ResourceDictionary Source="Themes/LightTheme.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</prism:PrismApplication>

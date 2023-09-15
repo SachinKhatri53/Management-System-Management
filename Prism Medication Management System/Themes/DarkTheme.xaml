@@ -1,0 +1,82 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <SolidColorBrush x:Key="BackTheme" Color="#0A1C32" />
+    <SolidColorBrush x:Key="ListViewTheme" Color="White" />
+
+    <!--  Button  -->
+    <Style x:Key="RegisterButtonStyle" TargetType="Button">
+        <Setter Property="Height" Value="40" />
+        <Setter Property="Margin" Value="0,10" />
+        <Setter Property="FontFamily" Value="Verdana" />
+        <Setter Property="Background" Value="#3D7ED4" />
+        <Setter Property="BorderBrush" Value="#3D7ED4" />
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="Foreground" Value="white" />
+    </Style>
+    <Style x:Key="AddButtonStyle" TargetType="Button">
+        <Setter Property="Margin" Value="0,0,20,0" />
+        <Setter Property="Background" Value="#0A1C32" />
+        <Setter Property="BorderBrush" Value="white" />
+        <Setter Property="Foreground" Value="white" />
+        <Setter Property="FontFamily" Value="Verdana" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Padding" Value="10" />
+        <Setter Property="HorizontalAlignment" Value="Right" />
+    </Style>
+    <Style x:Key="WindowAddButtonStyle" TargetType="Button">
+        <Setter Property="Margin" Value="0,20,0,0" />
+        <Setter Property="Background" Value="#0A1C32" />
+        <Setter Property="BorderBrush" Value="white" />
+        <Setter Property="FontFamily" Value="Verdana" />
+        <Setter Property="Foreground" Value="white" />
+        <Setter Property="FontWeight" Value="SemiBold" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Padding" Value="0,10" />
+    </Style>
+
+    <!--  Label  -->
+    <Style x:Key="LabelStyle" TargetType="Label">
+        <Setter Property="Height" Value="30" />
+        <Setter Property="VerticalContentAlignment" Value="Bottom" />
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="FontFamily" Value="Verdana" />
+        <Setter Property="Foreground" Value="white" />
+    </Style>
+    <Style x:Key="DashboardLabelStyle" TargetType="Label">
+        <Setter Property="FontFamily" Value="Verdana" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="22" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="Foreground" Value="white" />
+    </Style>
+    <Style x:Key="ViewLabelStyle" TargetType="Label">
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="FontWeight" Value="SemiBold" />
+        <Setter Property="Height" Value="30" />
+        <Setter Property="VerticalContentAlignment" Value="Bottom" />
+        <Setter Property="Foreground" Value="white" />
+        <Setter Property="FontFamily" Value="Verdana" />
+    </Style>
+    <Style x:Key="ViewValueLabelStyle" TargetType="Label">
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Height" Value="40" />
+        <Setter Property="Foreground" Value="white" />
+        <Setter Property="VerticalContentAlignment" Value="Bottom" />
+        <Setter Property="FontFamily" Value="Verdana" />
+    </Style>
+
+    <!--  TextBlock  -->
+    <Style x:Key="TextBlockStyle" TargetType="TextBlock">
+        <Setter Property="Padding" Value="0,10" />
+        <Setter Property="TextAlignment" Value="Center" />
+        <Setter Property="FontFamily" Value="Verdana" />
+        <Setter Property="Foreground" Value="white" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="FontWeight" Value="SemiBold" />
+        <Setter Property="TextWrapping" Value="Wrap" />
+    </Style>
+
+</ResourceDictionary>

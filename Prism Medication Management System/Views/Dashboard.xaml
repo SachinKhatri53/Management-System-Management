@@ -1,0 +1,195 @@
+﻿<Window
+    x:Class="Prism_Medication_Management_System.Views.Dashboard"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:fa="http://schemas.fontawesome.io/icons/"
+    xmlns:prism="http://prismlibrary.com/"
+    xmlns:views="clr-namespace:Prism_Medication_Management_System.Views"
+    Title="{Binding Title}"
+    MinWidth="1320"
+    MinHeight="720"
+    prism:ViewModelLocator.AutoWireViewModel="True"
+    WindowStartupLocation="CenterScreen"
+    WindowState="Maximized">
+    <Grid Background="{DynamicResource BackTheme}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.4*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="auto" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Border>
+            <Image Source="../Images/preview.png" />
+        </Border>
+        <Grid Grid.Row="1" Margin="20,0,0,20">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <StackPanel>
+                <Label
+                    Margin="0,50,0,20"
+                    HorizontalAlignment="Center"
+                    Content="Personal Information"
+                    Style="{DynamicResource LabelStyle}" />
+                <Border
+                    Margin="20,0,20,20"
+                    BorderBrush="#3D7ED4"
+                    BorderThickness="1" />
+                <WrapPanel>
+                    <Label
+                        Margin="30,0,0,0"
+                        Content="Firstname: "
+                        Style="{DynamicResource ViewLabelStyle}" />
+                    <Label Content="{Binding User.FirstName}" Style="{DynamicResource ViewValueLabelStyle}" />
+                </WrapPanel>
+                <WrapPanel>
+                    <Label
+                        Margin="30,0,0,0"
+                        Content="Lastname: "
+                        Style="{DynamicResource ViewLabelStyle}" />
+                    <Label Content="{Binding User.LastName}" Style="{DynamicResource ViewValueLabelStyle}" />
+                </WrapPanel>
+                <WrapPanel>
+                    <Label
+                        Margin="30,0,0,0"
+                        Content="Gender: "
+                        Style="{DynamicResource ViewLabelStyle}" />
+                    <Label Content="{Binding User.Gender}" Style="{DynamicResource ViewValueLabelStyle}" />
+                </WrapPanel>
+                <WrapPanel>
+                    <Label
+                        Margin="30,0,0,0"
+                        Content="Date of Birth: "
+                        Style="{DynamicResource ViewLabelStyle}" />
+                    <Label Content="{Binding User.BirthDate}" Style="{DynamicResource ViewValueLabelStyle}" />
+                </WrapPanel>
+                <WrapPanel>
+                    <Label
+                        Margin="30,0,0,0"
+                        Content="Age: "
+                        Style="{DynamicResource ViewLabelStyle}" />
+                    <Label Content="{Binding User.Age}" Style="{DynamicResource ViewValueLabelStyle}" />
+                </WrapPanel>
+                <Border
+                    Margin="20"
+                    BorderBrush="#3D7ED4"
+                    BorderThickness="1" />
+
+            </StackPanel>
+            <Button
+                Grid.Row="1"
+                Margin="0,0,0,20"
+                Padding="20,10"
+                HorizontalAlignment="Center"
+                VerticalContentAlignment="Bottom"
+                Background="Crimson"
+                BorderBrush="Crimson"
+                Command="{Binding LogoutCommand}"
+                Content="Logout"
+                Foreground="white" />
+        </Grid>
+        <TabControl
+            Grid.RowSpan="2"
+            Grid.Column="1"
+            Margin="20,0,0,20">
+            <TabItem Padding="10" Background="{DynamicResource BackTheme}">
+                <TabItem.Header>
+                    <Label Content="Home" Style="{DynamicResource TabHeaderLabelStyle}" />
+                </TabItem.Header>
+                <TabItem.Content>
+                    <views:UCHome />
+                </TabItem.Content>
+            </TabItem>
+            <TabItem Padding="10" Background="{DynamicResource BackTheme}">
+                <TabItem.Header>
+                    <Label Content="Medication" Style="{DynamicResource TabHeaderLabelStyle}" />
+                </TabItem.Header>
+                <TabItem.Content>
+                    <views:UCMedication />
+                </TabItem.Content>
+            </TabItem>
+            <TabItem Padding="10" Background="{DynamicResource BackTheme}">
+                <TabItem.Header>
+                    <Label Content="Dosage" Style="{DynamicResource TabHeaderLabelStyle}" />
+                </TabItem.Header>
+                <TabItem.Content>
+                    <views:UCDosage />
+                </TabItem.Content>
+            </TabItem>
+            <TabItem Padding="10" Background="{DynamicResource BackTheme}">
+                <TabItem.Header>
+                    <Label Content="Schedule" Style="{DynamicResource TabHeaderLabelStyle}" />
+                </TabItem.Header>
+                <TabItem.Content>
+                    <views:UCSchedule />
+                </TabItem.Content>
+            </TabItem>
+            <TabItem Padding="10" Background="{DynamicResource BackTheme}">
+                <TabItem.Header>
+                    <Label Content="Reports" Style="{DynamicResource TabHeaderLabelStyle}" />
+                </TabItem.Header>
+                <TabItem.Content>
+                    <views:UCReport />
+                </TabItem.Content>
+            </TabItem>
+            <TabItem Background="{DynamicResource BackTheme}">
+                <TabItem.Header>
+                    <TextBlock>
+                        <WrapPanel Margin="50,0">
+                            <TextBlock VerticalAlignment="Center">
+                                <fa:FontAwesome
+                                    FontSize="18"
+                                    Foreground="Crimson"
+                                    Icon="Bell" />
+                            </TextBlock>
+                            <Label
+                                Height="40"
+                                VerticalAlignment="Top"
+                                Content="{Binding NotificationCount}"
+                                Foreground="Crimson" />
+                        </WrapPanel>
+                    </TextBlock>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <views:UCNotification />
+                </TabItem.Content>
+            </TabItem>
+        </TabControl>
+        <StackPanel
+            Grid.Column="2"
+            Margin="20,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Center"
+            Orientation="Horizontal">
+            <TextBlock VerticalAlignment="Center">
+                <Hyperlink Command="{Binding LightModeCommand}" TextDecorations="None">
+                    <fa:FontAwesome
+                        FontSize="18"
+                        Foreground="gold"
+                        Icon="SunOutline" />
+                </Hyperlink>
+            </TextBlock>
+            <Slider
+                Name="ThemeSlider"
+                Width="30"
+                Margin="10,0"
+                VerticalAlignment="Center"
+                IsEnabled="False"
+                Maximum="1"
+                Minimum="0"
+                Value="{Binding SliderValue}" />
+            <TextBlock VerticalAlignment="Center">
+                <Hyperlink Command="{Binding DarkModeCommand}" TextDecorations="none">
+                    <fa:FontAwesome
+                        FontSize="18"
+                        Foreground="gray"
+                        Icon="MoonOutline" />
+                </Hyperlink>
+            </TextBlock>
+        </StackPanel>
+    </Grid>
+</Window>

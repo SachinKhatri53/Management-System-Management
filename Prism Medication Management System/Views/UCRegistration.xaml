@@ -1,0 +1,139 @@
+﻿<UserControl
+    x:Class="Prism_Medication_Management_System.Views.UCRegistration"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:passwordHelper="clr-namespace:Prism_Medication_Management_System.Helpers"
+    xmlns:prism="http://prismlibrary.com/"
+    prism:ViewModelLocator.AutoWireViewModel="True">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1.5*" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <Border Padding="50,0">
+            <StackPanel Margin="0,50">
+                <Label
+                    Content="Registration"
+                    FontSize="40"
+                    FontWeight="Bold"
+                    Foreground="#3D7ED4" />
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="0.1*" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel>
+                        <Label Content="Firstname" Style="{StaticResource LabelStyle}" />
+                        <TextBox Style="{StaticResource TextBoxStyle}" Text="{Binding User.FirstName}" />
+                    </StackPanel>
+                    <StackPanel Grid.Column="2">
+                        <Label Content="Lastname" Style="{StaticResource LabelStyle}" />
+                        <TextBox Style="{StaticResource TextBoxStyle}" Text="{Binding User.LastName}" />
+                    </StackPanel>
+                </Grid>
+                <WrapPanel Grid.Row="2">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <StackPanel>
+                            <Label Content="Gender" Style="{StaticResource LabelStyle}" />
+                            <StackPanel Height="40" Orientation="Horizontal">
+                                <RadioButton
+                                    Content="Male"
+                                    IsChecked="{Binding IsMale}"
+                                    Style="{StaticResource RadioButtonStyle}" />
+                                <RadioButton
+                                    Margin="20,0"
+                                    Content="Female"
+                                    IsChecked="{Binding IsFemale}"
+                                    Style="{StaticResource RadioButtonStyle}" />
+                                <RadioButton
+                                    Content="Others"
+                                    IsChecked="{Binding IsOther}"
+                                    Style="{StaticResource RadioButtonStyle}" />
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Grid.Column="1" Margin="20,0,0,0">
+                            <Label Content="Date of Birth" Style="{StaticResource LabelStyle}" />
+                            <DatePicker SelectedDate="{Binding SelectedBirthDate}" Style="{StaticResource DatePickerStyle}" />
+                        </StackPanel>
+                    </Grid>
+                </WrapPanel>
+                <Label Content="Email" Style="{StaticResource LabelStyle}" />
+                <TextBox Style="{StaticResource TextBoxStyle}" Text="{Binding User.Email}" />
+                <Label Content="Password" Style="{StaticResource LabelStyle}" />
+                <PasswordBox passwordHelper:PasswordBoxAssistant.BoundPassword="{Binding User.Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource PasswordBoxStyle}" />
+                <Label Content="Confirm Password" Style="{StaticResource LabelStyle}" />
+                <PasswordBox passwordHelper:PasswordBoxAssistant.BoundPassword="{Binding ConfirmPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource PasswordBoxStyle}" />
+                <CheckBox
+                    Height="30"
+                    VerticalContentAlignment="Bottom"
+                    Content="Agree all terms and conditions"
+                    FontFamily="Verdana"
+                    FontSize="18"
+                    IsChecked="{Binding IsEnabled}" />
+                <Button
+                    Command="{Binding RegisterCommand}"
+                    Content="Sign Up"
+                    Style="{StaticResource RegisterButtonStyle}" />
+                <TextBlock HorizontalAlignment="Right" FontFamily="Verdana">
+                    Already have an account?<Hyperlink Command="{Binding OpenLoginCommand}" TextDecorations="None">
+                        Login
+                    </Hyperlink>
+                </TextBlock>
+            </StackPanel>
+        </Border>
+        <Border
+            Grid.Column="1"
+            Padding="20"
+            Background="#3D7ED4">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Image
+                    Width="200"
+                    Height="auto"
+                    Margin="-20"
+                    HorizontalAlignment="Right"
+                    Source="../Images/logo.png" />
+                <TextBlock
+                    Grid.Row="1"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontFamily="Verdana"
+                    FontSize="18"
+                    Foreground="White"
+                    Text="{Binding DemoText}"
+                    TextAlignment="Center"
+                    TextWrapping="Wrap" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="1" Grid.ColumnSpan="2">
+            <StackPanel>
+                <TextBlock
+                    Padding="0,10,0,0"
+                    FontFamily="Verdana"
+                    FontWeight="bold"
+                    Foreground="black"
+                    Text="Copyright 2023"
+                    TextAlignment="center" />
+                <TextBlock
+                    Padding="0,0,0,10"
+                    FontFamily="Verdana"
+                    FontWeight="bold"
+                    Foreground="black"
+                    Text="Medication Management System"
+                    TextAlignment="center" />
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Images\logo-dark.png" />
+    <None Remove="Images\logo.png" />
+    <None Remove="Images\preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+	  <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+	  <PackageReference Include="FontAwesome.WPF" Version="4.7.0.9" />
+	  <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.10" />
+	  <PackageReference Include="Notification.Wpf" Version="7.0.0.2" />
+	  <PackageReference Include="Syncfusion.SfChart.WPF" Version="22.2.12" />
+	  <Using Include="BCrypt.Net.BCrypt" Alias="BC" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.10" />
+    <PackageReference Include="Prism.DryIoc" Version="8.1.97" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\logo-dark.png" />
+    <SplashScreen Include="Images\logo.png" />
+    <Resource Include="Images\preview.png" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,57 @@
+﻿<UserControl
+    x:Class="Prism_Medication_Management_System.Views.UCEditSchedule"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:prism="http://prismlibrary.com/"
+    prism:ViewModelLocator.AutoWireViewModel="True">
+    <Grid Background="{DynamicResource BackTheme}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Label Content="Edit Schedule" Style="{DynamicResource DashboardLabelStyle}" />
+        <Border Grid.Row="1" Margin="20">
+            <StackPanel>
+                <Label Content="Medicine Name" Style="{DynamicResource LabelStyle}" />
+                <TextBox
+                    IsEnabled="False"
+                    Style="{StaticResource TextBoxStyle}"
+                    Text="{Binding SelectedMedication}" />
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="0.2*" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel>
+                        <Label Content="Date" Style="{DynamicResource LabelStyle}" />
+                        <DatePicker SelectedDate="{Binding DateTime}" Style="{StaticResource DatePickerStyle}" />
+                    </StackPanel>
+                    <StackPanel Grid.Column="2">
+                        <Label Content="Time" Style="{DynamicResource LabelStyle}" />
+                        <WrapPanel>
+                            <ComboBox
+                                ItemsSource="{Binding HourList}"
+                                SelectedItem="{Binding SelectedHour}"
+                                Style="{StaticResource ComboBoxStyle}" />
+                            <ComboBox
+                                ItemsSource="{Binding MinuteList}"
+                                SelectedItem="{Binding SelectedMinute}"
+                                Style="{StaticResource ComboBoxStyle}" />
+                            <ComboBox
+                                ItemsSource="{Binding UnitList}"
+                                SelectedItem="{Binding SelectedUnit}"
+                                Style="{StaticResource ComboBoxStyle}" />
+                        </WrapPanel>
+                    </StackPanel>
+                </Grid>
+                <Button
+                    Command="{Binding UpdateScheduleCommand}"
+                    Content="Update"
+                    Style="{DynamicResource WindowAddButtonStyle}" />
+            </StackPanel>
+        </Border>
+
+
+    </Grid>
+</UserControl>

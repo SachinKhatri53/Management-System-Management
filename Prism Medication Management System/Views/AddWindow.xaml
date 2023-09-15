@@ -1,0 +1,14 @@
+﻿<Window
+    x:Class="Prism_Medication_Management_System.Views.AddWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:prism="http://prismlibrary.com/"
+    Width="400"
+    prism:ViewModelLocator.AutoWireViewModel="True"
+    ResizeMode="NoResize"
+    SizeToContent="Height"
+    WindowStartupLocation="CenterScreen">
+    <Grid>
+        <!--<ContentControl prism:RegionManager.RegionName="AddRegion" />-->
+    </Grid>
+</Window>

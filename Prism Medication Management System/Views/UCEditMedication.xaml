@@ -1,0 +1,45 @@
+﻿<UserControl
+    x:Class="Prism_Medication_Management_System.Views.UCEditMedication"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:prism="http://prismlibrary.com/"
+    prism:ViewModelLocator.AutoWireViewModel="True">
+    <Grid Background="{DynamicResource BackTheme}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Label Content="Edit Medication" Style="{DynamicResource DashboardLabelStyle}" />
+        <Border Grid.Row="1" Margin="20">
+            <StackPanel>
+                <Label Content="Medicine Name" Style="{DynamicResource LabelStyle}" />
+                <TextBox Style="{StaticResource TextBoxStyle}" Text="{Binding NewMedication.MedicationName}" />
+                <Label Content="Duration" Style="{DynamicResource LabelStyle}" />
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.5*" />
+                        <ColumnDefinition Width="0.5*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <ComboBox
+                        ItemsSource="{Binding DurationLengthList}"
+                        SelectedItem="{Binding SelectedDurationLength}"
+                        Style="{StaticResource ComboBoxStyle}" />
+                    <ComboBox
+                        Grid.Column="2"
+                        ItemsSource="{Binding DurationList}"
+                        SelectedItem="{Binding SelectedDuration}"
+                        Style="{StaticResource ComboBoxStyle}" />
+                </Grid>
+                <Label Content="Prescribed By" Style="{DynamicResource LabelStyle}" />
+                <TextBox Style="{StaticResource TextBoxStyle}" Text="{Binding NewMedication.PescribedBy}" />
+                <Label Content="Issued Date" Style="{StaticResource LabelStyle}" />
+                <DatePicker SelectedDate="{Binding IssuedDate}" Style="{StaticResource DatePickerStyle}" />
+                <Button
+                    Command="{Binding UpdateMedicationCommand}"
+                    Content="Update"
+                    Style="{DynamicResource WindowAddButtonStyle}" />
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>
